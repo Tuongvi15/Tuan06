@@ -1,0 +1,27 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+           http://www.springframework.org/schema/beans
+           https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- Bean Address -->
+    <bean id="address" class="com.example.springlab.Address">
+        <property name="city" value="HCM"/>
+        <property name="state" value="South"/>
+        <property name="country" value="Vietnam"/>
+    </bean>
+
+    <!-- Employee - Setter injection -->
+    <bean id="employeeSetter" class="com.example.springlab.Employee">
+        <property name="id" value="1"/>
+        <property name="name" value="Nguyen Van A"/>
+        <property name="address" ref="address"/>
+    </bean>
+
+    <!-- Employee - Constructor injection -->
+    <bean id="employeeConstructor" class="com.example.springlab.Employee">
+        <constructor-arg value="2"/>
+        <constructor-arg value="Tran Thi B"/>
+        <constructor-arg ref="address"/>
+    </bean>
+</beans>
